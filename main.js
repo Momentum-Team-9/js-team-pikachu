@@ -9,11 +9,29 @@ form.addEventListener('submit', function (event) {
   form.reset();
 });
 
+function musicCardToHtml(music) {
+  return `<span class="card">
+  <div class="artist">${music.artistName}
+  </div>
+  <div class="song">${music.trackName}
+  </div>
+ 
+  <span>`;
+}
+
 function search(searchText) {
   url += searchText;
   fetch(url, {
     method: 'GET',
   })
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+      for (var i = 0; i < 50; i++) {
+        document.querySelector('#container').innerHTML += musicCardToHtml(
+          data.results[i]
+        );
+
+        console.log(data.results[i]);
+      }
+    });
 }

@@ -1,0 +1,11 @@
+/* .artist {
+  background-color: aqua;
+} */
+
+.containerCard {
+  /* display: flex; */
+  text-align: center;
+  /* display: inline-block; */
+  display: flex;
+  margin: 20px;
+}
