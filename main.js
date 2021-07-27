@@ -15,7 +15,8 @@ function musicCardToHtml(music) {
   </div>
   <div class="song">${music.trackName}
   </div>
- 
+  <div class="preview"><audio controls src= ${music.previewUrl}>
+  </div>
   <span>`;
 }
 
