@@ -19,7 +19,7 @@ function musicCardToHtml(music) {
   <div class="artist">${music.artistName}
   </div>
   <div class="song">${music.trackName}
-  </div><div class="preview"><audio controls src= ${music.previewUrl}>
+  </div><button type="button" class="play">Play</button><div class="preview"><audio controls src= ${music.previewUrl}>
   </div>`;
 }
 
@@ -40,10 +40,12 @@ function search(searchText) {
     });
 }
 
-// let card = document.querySelector('.containerCard');
-// card.addEventListener('click', function (e) {
-//   e.preventDefault();
-//   if (e.target && e.target.matches('button.play')) {
-//     console.log(' was clicked!');
-//   }
-// });
+//How do we pass url to eventlister?
+
+let card = document.querySelector('.containerCard');
+card.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (e.target && e.target.matches('button.play')) {
+    console.log(' was clicked!');
+  }
+});
