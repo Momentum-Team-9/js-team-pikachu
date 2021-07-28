@@ -3,21 +3,24 @@ let url = 'https://itunes.apple.com/search?term=';
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
-  const searchText = document.getElementById('search').value;
-  console.log(searchText);
+  let searchText = document
+    .getElementById('search')
+    .value.trim()
+    .split(' ')
+    .join('+');
   search(searchText);
+
   form.reset();
 });
 
 function musicCardToHtml(music) {
+  // const preview = music.previewUrl
   return `<span class="card">
   <div class="artist">${music.artistName}
   </div>
   <div class="song">${music.trackName}
-  </div>
-  <div class="preview"><audio controls src= ${music.previewUrl}>
-  </div>
-  <span>`;
+  </div><div class="preview"><audio controls src= ${music.previewUrl}>
+  </div>`;
 }
 
 function search(searchText) {
@@ -27,7 +30,7 @@ function search(searchText) {
   })
     .then((response) => response.json())
     .then((data) => {
-      for (var i = 0; i < 50; i++) {
+      for (var i = 0; i < 6; i++) {
         document.querySelector('#container').innerHTML += musicCardToHtml(
           data.results[i]
         );
@@ -36,3 +39,11 @@ function search(searchText) {
       }
     });
 }
+
+// let card = document.querySelector('.containerCard');
+// card.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   if (e.target && e.target.matches('button.play')) {
+//     console.log(' was clicked!');
+//   }
+// });
