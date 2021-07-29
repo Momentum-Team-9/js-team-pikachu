@@ -2,8 +2,23 @@
   background-color: aqua;
 } */
 
-.containerCard {
-  /* background-color: chartreuse; */
+h1 {
+  background-color: #1f091e;
+  padding: 10px;
+  border-radius: 40px;
+  text-align: center;
+}
+
+#search {
+  width: 300px;
+  height: 50px;
+  border-radius: 40px;
+  border: 2px solid lightgray;
+}
+#save-note {
+  height: 50px;
+  border-radius: 40px;
+  border: 2px solid lightgray;
 }
 
 .card {
