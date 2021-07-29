@@ -30,7 +30,9 @@
 
   <body>
     <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-      <div class="w3-display-topleft w3-padding-large w3-xlarge">♫ ٩(˘◡˘)۶ ♫</div>
+      <div class="w3-display-topleft w3-padding-large w3-xlarge">
+        ♫ ٩(˘◡˘)۶ ♫
+      </div>
       <div class="w3-display-middle">
         <h1 class="w3-jumbo w3-animate-top">Kiba Tunes</h1>
         <hr class="w3-border-grey" style="margin: auto; width: 40%" />
@@ -38,17 +40,20 @@
           <input id="search" type="text" placeholder="search" required />
           <button id="save-note" type="submit">Search</button>
         </form>
+        </div>
       </div>
       <div class="w3-display-bottomleft w3-padding-large">
         Powered by
-        <a href="https://www.signwayonline.net/wp-content/uploads/2020/06/Emojis_SmileySquintFace.jpg" target="_blank"
+        <a
+          href="https://www.signwayonline.net/wp-content/uploads/2020/06/Emojis_SmileySquintFace.jpg"
+          target="_blank"
           >something cool</a
         >
       </div>
     </div>
     <div class="audioPlayer">
       <h2>Play tunes</h2>
-      <audio src="" id="player" controls></audio>
+      <audio src="" id="player" controls autoplay></audio>
     </div>
     <div class="containerCard" id="container"></div>
   </body>

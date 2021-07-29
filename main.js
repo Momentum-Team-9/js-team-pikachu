@@ -14,7 +14,6 @@ form.addEventListener('submit', function (event) {
 });
 
 function musicCardToHtml(music) {
-  // const preview = music.previewUrl
   return `<div class="card">
 <div class="albumArt">
   <img src= ${music.artworkUrl100} alt="Album art">
