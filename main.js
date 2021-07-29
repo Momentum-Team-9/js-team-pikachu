@@ -30,7 +30,7 @@ function search(searchText) {
   })
     .then((response) => response.json())
     .then((data) => {
-      for (var i = 0; i < 6; i++) {
+      for (var i = 0; i < 9; i++) {
         document.querySelector('#container').innerHTML += musicCardToHtml(
           data.results[i]
         );
