@@ -1,5 +1,5 @@
 const form = document.getElementById('searchContainer');
-let url = 'https://itunes.apple.com/search?term=';
+let url = 'https://proxy-itunes-api.glitch.me/search?limit=18&term=';
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -15,11 +15,13 @@ form.addEventListener('submit', function (event) {
 
 function musicCardToHtml(music) {
   // const preview = music.previewUrl
-  return `<span class="card">
-  <div class="artist">${music.artistName}
-  </div>
-  <div class="song">${music.trackName}
-  </div><button type="button" class="play">Play</button><div class="preview"><audio controls src= ${music.previewUrl}>
+  return `<div class="card">
+
+  <img src= ${music.artworkUrl100} alt="Album art">
+  <div class="artist">${music.artistName}</div>
+  
+  <div class="song">${music.trackName}</div>
+  <button type="button" class="play" data-preview-url=${music.previewUrl}>Play</button>
   </div>`;
 }
 
@@ -30,7 +32,7 @@ function search(searchText) {
   })
     .then((response) => response.json())
     .then((data) => {
-      for (var i = 0; i < 9; i++) {
+      for (var i = 0; i < 18; i++) {
         document.querySelector('#container').innerHTML += musicCardToHtml(
           data.results[i]
         );
@@ -47,5 +49,9 @@ card.addEventListener('click', function (e) {
   e.preventDefault();
   if (e.target && e.target.matches('button.play')) {
     console.log(' was clicked!');
+    console.log(e.target.dataset.previewUrl);
+    // use that url as the src attribute on the audio player
+    const audioPlayer = document.querySelector('#player');
+    audioPlayer.src = e.target.dataset.previewUrl;
   }
 });
